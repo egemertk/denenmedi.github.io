@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kulaklık İnceleme</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const feedbackKeys = ['pros1', 'pros2', 'pros3', 'cons1', 'cons2', 'cons3'];
+    
+    // Sayfa yüklendiğinde verileri yükle ve yüzdeleri hesapla
+    feedbackKeys.forEach(key => {
+        const storedData = JSON.parse(localStorage.getItem(key)) || { agree: 0, disagree: 0 };
+        updatePercentageDisplay(key, storedData.agree, storedData.disagree);
+    });
+
+    function updatePercentageDisplay(id, agree, disagree) {
+        const total = agree + disagree;
+        const percentage = total ? Math.round((agree / total) * 100) : 0;
+        document.getElementById(id).innerText = percentage;
+    }
+
+    // Yüzdelik oranları etkileyen fonksiyon
+    window.updateFeedback = function (isAgree, id) {
+        let storedData = JSON.parse(localStorage.getItem(id)) || { agree: 0, disagree: 0 };
+
+        if (isAgree) {
+            storedData.agree += 1;
+        } else {
+            storedData.disagree += 1;
+        }
+
+        localStorage.setItem(id, JSON.stringify(storedData));
+        updatePercentageDisplay(id, storedData.agree, storedData.disagree);
+    };
+});
+
+
+        let slideIndex = 1;
+         showSlides(slideIndex);
+
+        function plusSlides(n) {
+         showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+         showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+         let i;
+         let slides = document.getElementsByClassName("mySlides");
+         let dots = document.getElementsByClassName("dot");
+         if (n > slides.length) {slideIndex = 1}
+         if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+         }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+
+    </script>
+</head>
+<body onload="showSlides(slideIndex)" style="background-color: #f2f4f8;">
+    <div class="page-container">
+        <!-- Sol Div (Menü) -->
+        <div class="left-sidebar">
+            <h3>Diğer Ürünler</h3>
+            <ul>
+                <li><a href="#">Akıllı Telefonlar</a></li>
+                <li><a href="#">Tabletler</a></li>
+                <li><a href="#">Bilgisayarlar</a></li>
+                <li><a href="#">Saatler</a></li>
+            </ul>
+        </div>
+
+        <!-- Ana İçerik Divi (Main Content) -->
+        <div class="main-content">
+            <h2 style="padding: 14px;">Anker Soundcore H30i Mikrofonlu Kablosuz Kulaküstü Kulaklık</h2>
+            <!-- Ürün Bilgileri Bölümü -->
+            <div class="product-section">
+                <div class="main-slider">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="https://anker-tr.com/cdn/shop/files/Anker-Soundcore-H30i-Kablosuz-Kulakustu-Bluetooth-Kulaklik-Siyah.jpg?v=1705482112" alt="Kulaklık">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="https://anker-tr.com/cdn/shop/files/1-Anker-Soundcore-H30i-Kablosuz-Kulakustu-Bluetooth-Kulaklik-Siyah.jpg?v=1705482124" alt="Banner">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="https://anker-tr.com/cdn/shop/files/2-Anker-Soundcore-H30i-Kablosuz-Kulakustu-Bluetooth-Kulaklik-Siyah.jpg?v=1705482126" alt="Favicon">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="https://anker-tr.com/cdn/shop/files/3-Anker-Soundcore-H30i-Kablosuz-Kulakustu-Bluetooth-Kulaklik-Siyah.jpg?v=1705482125" alt="Favicon">
+                        </div>
+                
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                
+                    <div class="dot-container">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span> 
+                        <span class="dot" onclick="currentSlide(4)"></span> 
+                    </div>
+                </div>
+                
+                <div class="price-links">
+                    <p>Fiyat: $150</p>
+                    <p>Alternatif Satın Alma Siteleri:</p>
+                    <div class="store-buttons">
+                        <div class="store-item">
+                            <img src="https://cdn.dribbble.com/users/1827987/screenshots/11560691/amazon_redesign__1.png" alt="Amazon" class="store-logo">
+                            <a href="#"><div class="store-info">
+                                <p class="buy-now">Hemen Al</p>
+                                <p class="price">$139.99</p>
+                                <p class="seller">Amazon</p>
+                            </div></a>
+                        </div>
+                        <div class="store-item">
+                            <img src="https://akaunting.com/public/assets/media/281-bazsoft/hepsiburada/heplogo.png" alt="Hepsiburada" class="store-logo">
+                            <a href="#"><div class="store-info">
+                                <p class="buy-now">Hemen Al</p>
+                                <p class="price">$144.99</p>
+                                <p class="seller">Hepsiburada</p>
+                            </div></a>
+                        </div>
+                        <div class="store-item">
+                            <img src="https://kreabaz.com/wp-content/uploads/2023/05/trendyol-magaza-nasil-acilir.jpg.webp" alt="Trendyol" class="store-logo">
+                            <a href="#"><div class="store-info">
+                                <p class="buy-now">Hemen Al</p>
+                                <p class="price">$149.99</p>
+                                <p class="seller">Trendyol</p>
+                            </div></a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <!-- Artılar ve Eksiler -->
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>Artılar</h3>
+                    <ul>
+                        <li>
+                            <a>Uzun pil ömrü (%<span id="pros1">80</span> memnun)</a>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'pros1')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'pros1')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
+                        </li>
+                        <li>
+                            <a>Yüksek ses kalitesi (%<span id="pros2">85</span> memnun)</a>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'pros2')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'pros2')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
+                        </li>
+                        <li>
+                            <a>Konforlu tasarım (%<span id="pros3">90</span> memnun)</a>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'pros3')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'pros3')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>Eksiler</h3>
+                    <ul>
+                        <li>
+                            <a>Kablosuz bağlantıda arada kesilme (%<span id="cons1">40</span> şikayet ediyor)</a>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'cons1')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'cons1')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
+                        </li>
+                        <li>
+                            <a>Yüksek fiyat (%<span id="cons2">55</span> şikayet ediyor)</a>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'cons2')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'cons2')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
+                        </li>
+                        <li>
+                            <a>Büyük ve ağır (%<span id="cons3">30</span> şikayet ediyor)</a>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'cons3')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'cons3')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sağ Div (Banner Reklam) -->
+        <div class="right-sidebar">
+            <img src="banner.jpg" alt="Banner" class="banner-img" width="100%" height="800px">
+        </div>
+    </div>
+</body>
+</html>
