@@ -20,6 +20,11 @@ body {
     margin: auto;
     overflow: hidden;
     border-radius: 20px;
+    transition: 0.2s ease;
+}
+
+.slideshow-container:hover {
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Resimlerin slayt şeklinde görünmesi */
@@ -47,25 +52,24 @@ body {
     font-weight: bold;
     font-size: 18px;
     transition: 0.2s ease;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 20px 20px 0;
     user-select: none;
     background-color: rgba(199, 199, 199, 0.5); /* Butonları belirginleştirmek için arka plan */
 }
 
 .prev:hover {
-    transition: 0.2s ease;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 15px 15px 0;
     background-color: rgba(0,0,0,0.5);
 }
 
 .next {
     right: 0;
-    border-radius: 10px 0 0 10px;
+    border-radius: 20px 0 0 20px;
 }
 
 .next:hover {
     transition: 0.2s ease;
-    border-radius: 10px 0 0 10px;
+    border-radius: 15px 0 0 15px;
     background-color: rgba(0,0,0,0.5);
 }
 
@@ -77,17 +81,17 @@ body {
 
 .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: #e4e4e4;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.4s ease;
 }
 
 .active, .dot:hover {
-    background-color: #717171;
+    background-color: #a7a7a7;
 }
 
 /* Fade animasyonu */
@@ -227,9 +231,9 @@ body {
     align-items: center;
     height: auto;
     margin-bottom: 10px; /* Butonlar arasında boşluk */
-    border: 1px solid #ddd; /* Buton etrafında hafif sınır */
+    border: 0px solid #ddd; /* Buton etrafında hafif sınır */
     border-radius: 10px; /* Buton köşeleri yuvarlak */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 6px 65px 6px 10px; /* İç boşluk */
     transition: 0.2s ease;
 }
