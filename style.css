@@ -55,29 +55,16 @@
     }
 }
 
-/* Daha Küçük Ekranlar İçin Stil Ayarları */
-@media (max-width: 500px) {
-    .main-content {
-        width: 100%;
-      }
-
-    .main-content h2 {
-        font-size: 1.5em; /* Başlık boyutunu küçült */
+@media screen and (max-width: 500px) {
+    .slideshow-container {
+      width: 80%; /* main-content ile birlikte küçülecek */
+      max-width: 80%;
     }
-
-    .price-links {
-        text-align: center; /* Merkezle */
+    
+    body {
+      width: 95%; /* main-content de genişliğiyle orantılı küçülecek */
     }
-
-    .pros li, .cons li {
-        flex-direction: column; /* Dikey hizalama */
-        align-items: flex-start; /* Sola yasla */
-    }
-
-    .feedback-buttons {
-        margin-top: 5px; /* Butonlar arasında boşluk */
-    }
-}
+  }
 
 
 body {
@@ -185,7 +172,7 @@ body {
 /* Sayfa konteyneri */
 .page-container {
     display: flex;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     gap: 20px;
 }
