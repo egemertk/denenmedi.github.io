@@ -229,11 +229,13 @@ body {
     margin-bottom: 10px; /* Butonlar arasında boşluk */
     border: 1px solid #ddd; /* Buton etrafında hafif sınır */
     border-radius: 10px; /* Buton köşeleri yuvarlak */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     padding: 6px 65px 6px 10px; /* İç boşluk */
     transition: 0.2s ease;
 }
 
 .store-item:hover {
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.1);
     border-radius: 5px; /* Buton köşeleri yuvarlak */
     transform: scale(1.05);
 }
