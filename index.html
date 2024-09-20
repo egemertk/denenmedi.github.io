@@ -64,46 +64,7 @@
           dots[slideIndex-1].className += " active";
         }
 
-        // Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBvMA4-yigiZIcwLRWHknO2h35G03jpxmg",
-  authDomain: "agree-disagree-stats.firebaseapp.com",
-  databaseURL: "https://agree-disagree-stats-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "agree-disagree-stats",
-  storageBucket: "agree-disagree-stats.appspot.com",
-  messagingSenderId: "687501715019",
-  appId: "1:687501715019:web:dac0748d6d9f8caa0ccfce",
-  measurementId: "G-6PQZHB71EF"
-};
-
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
-function vote(isAgree) {
-  const totalVotesRef = database.ref('totalVotes');
-  const agreeVotesRef = database.ref('agreeVotes');
-  const disagreeVotesRef = database.ref('disagreeVotes');
-
-  // Oy verme
-  totalVotesRef.transaction(total => (total || 0) + 1);
-  if (isAgree) {
-    agreeVotesRef.transaction(agree => (agree || 0) + 1);
-  } else {
-    disagreeVotesRef.transaction(disagree => (disagree || 0) + 1);
-  }
-}
-
     </script>
-    <!-- Firebase App (the core Firebase SDK) -->
-<script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"></script>
-
-<!-- Firebase Realtime Database -->
-<script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"></script>
-
-<!-- Firebase Auth (optional) -->
-<script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js"></script>
-
 </head>
 <body onload="showSlides(slideIndex)" style="background-color: #f2f4f8;">
     <div class="page-container">
@@ -191,30 +152,24 @@ function vote(isAgree) {
                     <ul>
                         <li>
                             <a>Uzun pil ömrü (%<span id="pros1">80</span> memnun)</a>
-                            <form onsubmit="submitFeedback(event, 'pros1')">
-                                <div class="feedback-buttons">
-                                    <button type="button" onclick="vote(true)" class="feedback-item agree">Katılıyorum</button>
-                                    <button type="button" onclick="vote(false)" class="feedback-item disagree">Katılmıyorum</button>
-                                </div>
-                            </form>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'pros1')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'pros1')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
                         </li>
                         <li>
                             <a>Yüksek ses kalitesi (%<span id="pros2">85</span> memnun)</a>
-                            <form onsubmit="submitFeedback(event, 'pros2')">
-                                <div class="feedback-buttons">
-                                    <button type="button" onclick="vote(true)" class="feedback-item agree">Katılıyorum</button>
-                                    <button type="button" onclick="vote(false)" class="feedback-item disagree">Katılmıyorum</button>
-                                </div>
-                            </form>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'pros2')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'pros2')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
                         </li>
                         <li>
                             <a>Konforlu tasarım (%<span id="pros3">90</span> memnun)</a>
-                            <form onsubmit="submitFeedback(event, 'pros3')">
-                                <div class="feedback-buttons">
-                                    <button type="button" onclick="vote(true)" class="feedback-item agree">Katılıyorum</button>
-                                    <button type="button" onclick="vote(false)" class="feedback-item disagree">Katılmıyorum</button>
-                                </div>
-                            </form>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'pros3')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'pros3')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -223,35 +178,28 @@ function vote(isAgree) {
                     <ul>
                         <li>
                             <a>Kablosuz bağlantıda arada kesilme (%<span id="cons1">40</span> şikayet ediyor)</a>
-                            <form onsubmit="submitFeedback(event, 'cons1')">
-                                <div class="feedback-buttons">
-                                    <button type="button" onclick="vote(true)" class="feedback-item agree">Katılıyorum</button>
-                                    <button type="button" onclick="vote(false)" class="feedback-item disagree">Katılmıyorum</button>
-                                </div>
-                            </form>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'cons1')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'cons1')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
                         </li>
                         <li>
                             <a>Yüksek fiyat (%<span id="cons2">55</span> şikayet ediyor)</a>
-                            <form onsubmit="submitFeedback(event, 'cons2')">
-                                <div class="feedback-buttons">
-                                    <button type="button" onclick="vote(true)" class="feedback-item agree">Katılıyorum</button>
-                                    <button type="button" onclick="vote(false)" class="feedback-item disagree">Katılmıyorum</button>
-                                </div>
-                            </form>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'cons2')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'cons2')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
                         </li>
                         <li>
                             <a>Büyük ve ağır (%<span id="cons3">30</span> şikayet ediyor)</a>
-                            <form onsubmit="submitFeedback(event, 'cons3')">
-                                <div class="feedback-buttons">
-                                    <button type="button" onclick="vote(true)" class="feedback-item agree">Katılıyorum</button>
-                                    <button type="button" onclick="vote(false)" class="feedback-item disagree">Katılmıyorum</button>
-                                </div>
-                            </form>
+                            <div class="feedback-buttons">
+                                <button onclick="updateFeedback(true, 'cons3')" class="feedback-item agree">Katılıyorum</button>
+                                <button onclick="updateFeedback(false, 'cons3')" class="feedback-item disagree">Katılmıyorum</button>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            
         </div>
 
         <!-- Sağ Div (Banner Reklam) -->
