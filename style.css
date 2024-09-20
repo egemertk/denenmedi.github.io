@@ -62,7 +62,7 @@
     }
     
     body {
-      width: 95%; /* main-content de genişliğiyle orantılı küçülecek */
+      width: 100%; /* main-content de genişliğiyle orantılı küçülecek */
     }
   }
 
