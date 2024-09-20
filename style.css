@@ -4,6 +4,82 @@
     box-sizing: border-box;
 }
 
+/* Mobil Cihazlar İçin Stil Ayarları */
+@media (max-width: 768px) {
+    /* Sayfa konteyneri */
+    .page-container {
+        flex-direction: column; /* Dikey hizalama */
+        gap: 10px; /* Daha az boşluk */
+    }
+
+    /* Sol Div (Menü) */
+    .left-sidebar {
+        width: 100%; /* Tam genişlik */
+        margin-bottom: 10px; /* Alt boşluk */
+    }
+
+    /* Ana İçerik Divi (Main Content) */
+    .main-content {
+        padding: 10px; /* Küçük iç boşluk */
+    }
+
+    /* Ürün Bilgileri Bölümü */
+    .product-section {
+        flex-direction: column; /* Dikey hizalama */
+        align-items: center; /* Ortalanmış */
+    }
+
+    .slideshow-container {
+        width: 100%; /* Tam genişlik */
+        height: auto; /* Otomatik yükseklik */
+    }
+
+    /* Artılar ve Eksiler */
+    .pros-cons {
+        flex-direction: column; /* Dikey hizalama */
+    }
+
+    .pros, .cons {
+        width: 100%; /* Tam genişlik */
+    }
+
+    /* Store Buttons */
+    .store-buttons {
+        flex-direction: column; /* Dikey hizalama */
+        align-items: center; /* Ortalanmış */
+    }
+
+    .store-item {
+        width: 90%; /* Daha dar genişlik */
+        margin-bottom: 10px; /* Alt boşluk */
+    }
+}
+
+/* Daha Küçük Ekranlar İçin Stil Ayarları */
+@media (max-width: 500px) {
+    .main-content {
+        width: 100%;
+      }
+
+    .main-content h2 {
+        font-size: 1.5em; /* Başlık boyutunu küçült */
+    }
+
+    .price-links {
+        text-align: center; /* Merkezle */
+    }
+
+    .pros li, .cons li {
+        flex-direction: column; /* Dikey hizalama */
+        align-items: flex-start; /* Sola yasla */
+    }
+
+    .feedback-buttons {
+        margin-top: 5px; /* Butonlar arasında boşluk */
+    }
+}
+
+
 body {
     font-family: Verdana, sans-serif;
     background-color: #f2f4f8; /* Krem arka plan */
@@ -14,8 +90,8 @@ body {
 
 /* Slideshow container */
 .slideshow-container {
-    width: 400px;  /* Sabit kare boyut */
-    height: 400px; /* Sabit kare boyut */
+    width: 450px;  /* Sabit kare boyut */
+    height: 450px; /* Sabit kare boyut */
     position: relative;
     margin: auto;
     overflow: hidden;
@@ -116,14 +192,11 @@ body {
 
 /* Sol Div (Menü) */
 .left-sidebar {
-    width: 500px;
+    width: 100%;
     background-color: #ffffff; /* Beyaz arka plan */
     padding: 20px;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #d1d1d1;
-    border-width: 1px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    box-shadow: 0 0 10px rgba(150, 150, 150, 0.1); /* Hafif gölge */
 }
 
 .left-sidebar h3 {
@@ -146,8 +219,37 @@ body {
 }
 
 .left-sidebar a:hover {
-    color: #2d4263; /* Pastel lacivert */
+    color: #2b5291; /* Pastel lacivert */
 }
+
+#product-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .product-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgba(116, 116, 116, 0.1);
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .product-btn:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-btn i {
+    margin-right: 10px;
+  }
+  
 
 /* Ana İçerik Divi (Main Content) */
 .main-content {
@@ -155,10 +257,7 @@ body {
     background-color: #ffffff; /* Beyaz arka plan */
     padding: 20px;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #d1d1d1;
-    border-width: 1px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(150, 150, 150, 0.1);
     position: relative; /* Butonlar için konumlandırma */
 }
 
@@ -168,12 +267,6 @@ body {
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
-}
-
-.product-img {
-    width: 300px;
-    height: auto;
-    border: none; /* Pastel lacivert çerçeve */
 }
 
 .price-links a {
@@ -206,7 +299,7 @@ body {
 }
 
 .pros li, .cons li {
-    background-color: #f2f4f8; /* Krem arka plan */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -227,11 +320,10 @@ body {
 }
 
 .store-item {
+    width: 101%;
     display: flex;
     align-items: center;
-    height: auto;
     margin-bottom: 10px; /* Butonlar arasında boşluk */
-    border: 0px solid #ddd; /* Buton etrafında hafif sınır */
     border-radius: 10px; /* Buton köşeleri yuvarlak */
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 6px 65px 6px 10px; /* İç boşluk */
@@ -262,6 +354,8 @@ body {
 }
 
 .buy-now {
+    color: #194fe2;
+    width: 110%;
     font-size: 20px; /* "Hemen Al" metni biraz büyük */
     font-weight: 500;
     margin-bottom: 5px; /* "Hemen Al" ile diğer bilgiler arasında boşluk */
@@ -342,11 +436,11 @@ li:hover .feedback-buttons {
 
 /* Hover Durumu - Butonlar renk değişimi */
 .feedback-buttons .agree:hover {
-    background-color: #ddd; /* Butonlar üzerine gelince renk değişimi */
+    background-color: #eee; /* Butonlar üzerine gelince renk değişimi */
     color: #28a745;
 }
 
 .feedback-buttons .disagree:hover {
-    background-color: #ddd; /* Butonlar üzerine gelince renk değişimi */
+    background-color: #eee; /* Butonlar üzerine gelince renk değişimi */
     color: #dc3545;
 }
