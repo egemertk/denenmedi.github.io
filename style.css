@@ -57,8 +57,8 @@
 
 @media screen and (max-width: 500px) {
     .slideshow-container {
-      width: 80%; /* main-content ile birlikte küçülecek */
-      max-width: 80%;
+      width: 77%; /* main-content ile birlikte küçülecek */
+      max-width: 77%;
     }
     
     body {
