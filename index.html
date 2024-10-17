@@ -21,7 +21,7 @@
         const total = agree + disagree;
         const percentage = total ? Math.round((agree / total) * 100) : 0;
         const voteCount = total > 0 ? total : 0; 
-        document.getElementById(id).innerText = percentage;
+        document.getElementById(id).innerText = `${percentage} (${voteCount} oy)`;
     }
 
     // Yüzdelik oranları etkileyen fonksiyon
